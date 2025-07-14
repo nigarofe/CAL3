@@ -1,0 +1,32 @@
+{
+  "name": "cal3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -p client && tsc -p server && node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigarofe/CAL3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nigarofe/CAL3/issues"
+  },
+  "homepage": "https://github.com/nigarofe/CAL3#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "jest": "^30.0.4",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "express": "^5.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
