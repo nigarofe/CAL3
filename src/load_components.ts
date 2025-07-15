@@ -31,6 +31,7 @@ async function loadComponent(url: string) {
 
 document.addEventListener("DOMContentLoaded", () => {
   Promise.all([
+    loadComponent("components/main-header.html"),
     loadComponent("components/toast.html"),
     loadComponent("components/sticky-navbar.html"),
     loadComponent("components/add-question-form.html"),

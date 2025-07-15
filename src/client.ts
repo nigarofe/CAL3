@@ -40,12 +40,10 @@ async function reloadPage() {
     selectedRadio.checked = true;
   }
   let selectedRadioId = selectedRadio.id;
-  console.log(selectedRadioId);
 
   let order_by =
     metricRadios.find((radio) => radio.id === selectedRadioId)?.order_by ??
     "potential_memory_gain_multiplier";
-  console.log(order_by);
 
   let order;
 
@@ -86,9 +84,9 @@ function reorderAndFilterQuestions(
   order_by: string,
   filter: string
 ) {
-  console.log(
-    `reorderAndFilterQuestions(order_by: ${order_by}, filter: "${filter}", order: ${order})`
-  );
+  //   console.log(
+  //     `reorderAndFilterQuestions(order_by: ${order_by}, filter: "${filter}", order: ${order})`
+  //   );
   let filteredQuestions = questions;
 
   filteredQuestions.sort((a, b) => {
@@ -227,11 +225,7 @@ function loadHTMLQuestionsTable() {
   questionsTable.appendChild(tableBody);
 }
 
-function postQuestion(
-  discipline: string,
-  source: string,
-  description: string
-) {
+function postQuestion(discipline: string, source: string, description: string) {
   fetch("/api/questions/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
