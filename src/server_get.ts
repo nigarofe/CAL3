@@ -19,6 +19,28 @@ interface QuestionRow {
   date_vec_json: string;
 }
 
+interface SpacedRepetitionVariables {
+  attempts: { datetime: string; code: number }[];
+  DSLA: number | string;
+  LaMI: number | string;
+  "PMG-D": number | string;
+  "PMG-X": number | string;
+  total_attempts: number | string;
+  memory_attempts: number | string;
+  help_attempts: number | string;
+  attempts_summary: string;
+  "PMG-X_cell_color": string;
+}
+
+interface Question {
+  number: number;
+  proposition: string;
+  "step-by-step": string;
+  answer: string;
+  tags: string[];
+  spaced_repetition_variables: SpacedRepetitionVariables;
+}
+
 export default function createGetRoutes(db: Database) {
   const router = express.Router();
 
@@ -29,7 +51,7 @@ export default function createGetRoutes(db: Database) {
         return res.status(500).json({ error: err.message });
       }
 
-      const enriched = rows.map((row) => {
+      const questions: Question[] = rows.map((row) => {
         const code_vector = JSON.parse(row.code_vec_json);
         const date_vector = JSON.parse(row.date_vec_json);
 
@@ -48,14 +70,15 @@ export default function createGetRoutes(db: Database) {
           potential_memory_gain_in_days = STATUS_NA;
           latest_memory_interval = STATUS_NA;
           days_since_last_attempt = STATUS_NA;
-          attempts_summary = STATUS_NA;
+          attempts_summary = "0;0;0";
         } else {
           const daysSince = calculateDaysSinceLastAttempt(date_vector);
           days_since_last_attempt = daysSince;
-          attempts_summary = calculateAttemptsSummary(code_vector);
+          const summary = calculateAttemptsSummary(code_vector);
+          attempts_summary = summary;
 
           ({
-            latest_memory_interval, 
+            latest_memory_interval,
             potential_memory_gain_multiplier,
             potential_memory_gain_in_days,
           } = calculateLatestMemoryIntervalAndPotentialGain(
@@ -65,23 +88,37 @@ export default function createGetRoutes(db: Database) {
           ));
         }
 
-        return {
-          question_number: row.question_number,
-          discipline: row.discipline,
-          source: row.source,
-          description: row.description,
-          days_since_last_attempt,
-          latest_memory_interval,
-          potential_memory_gain_in_days,
-          potential_memory_gain_multiplier,
-          attempts_summary,
-          date_vector: date_vector,
+        const [total_attempts, memory_attempts, help_attempts] = attempts_summary.split(';').map(s => parseInt(s, 10));
+
+        const question: Question = {
+          number: row.question_number,
+          proposition: row.description,
+          "step-by-step": "", // This will be populated later
+          answer: "", // This will be populated later
+          tags: [row.discipline, row.source],
+          spaced_repetition_variables: {
+            attempts: date_vector.map((date: string, index: number) => ({
+              datetime: date,
+              code: code_vector[index],
+            })),
+            DSLA: days_since_last_attempt,
+            LaMI: latest_memory_interval,
+            "PMG-D": potential_memory_gain_in_days,
+            "PMG-X": potential_memory_gain_multiplier,
+            total_attempts: total_attempts,
+            memory_attempts: memory_attempts,
+            help_attempts: help_attempts,
+            attempts_summary: attempts_summary,
+            "PMG-X_cell_color": "", // This will be populated later
+          },
         };
+        return question;
       });
 
-      calculateCellColor(enriched, "potential_memory_gain_multiplier");
+      const srvs = questions.map(q => q.spaced_repetition_variables)
+      calculateCellColor(srvs, "PMG-X");
 
-      res.json(enriched);
+      res.json(questions);
     });
   });
 

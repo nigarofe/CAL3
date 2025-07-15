@@ -67,20 +67,11 @@ function calculateAttemptsSummary(code_vector: number[]) {
     const attempts_with_help = code_vector.filter(x => x === 0).length;
     const total_attempts = attempts_without_help + attempts_with_help;
 
-    let last_attempt_message;
-    if (!code_vector || code_vector.length === 0) {
-        last_attempt_message = STATUS_NA;
-    } else {
-        last_attempt_message = code_vector[code_vector.length - 1] !== 1
-            ? STATUS_WH
-            : STATUS_FROM_MEMORY;
-    }
     const attempts_summary = [
         total_attempts,
         attempts_without_help,
-        attempts_with_help,
-        last_attempt_message
-    ].join('; ');
+        attempts_with_help
+    ].join(';');
 
     return attempts_summary;
 }
@@ -159,7 +150,7 @@ function calculateCellColor(records: Record<string, any>[], metric_name = 'poten
             colour = COLOR_FALLBACK_GRAY;              // fallback / corrupt value
         }
 
-        r['PMG-X Cell Color'] = colour;               // attach to the current record
+        r['PMG-X_cell_color'] = colour;               // attach to the current record
     });
 }
 

@@ -93,6 +93,11 @@
                 "descriptive_name": "Attempts Summary",
                 "description": "A three-part summary, separated by semicolons (e.g., `4; 1; 3`), that details your attempts for a question. Components: total_attempts (First Number), memory_attempts (Second Number), help_attempts (Third Number)",
                 "pattern": "^\\d+;\\d+;\\d+$"
+              },
+              "PMG-X_cell_color": {
+                "type": "string",
+                "descriptive_name": "Color",
+                "description": "A hex color code representing the question's priority."
               }
             }
           }

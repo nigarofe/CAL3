@@ -5,11 +5,11 @@ let tableBody: HTMLTableSectionElement = document.createElement("tbody");
 let commonTableRow: HTMLTableRowElement = document.createElement("tr");
 
 const metricRadios = [
-  { id: "pmg-x", order_by: "potential_memory_gain_multiplier" },
-  { id: "pmg-d", order_by: "potential_memory_gain_in_days" },
-  { id: "last-attempt", order_by: "days_since_last_attempt" },
-  { id: "lami", order_by: "latest_memory_interval" },
-  { id: "q-no", order_by: "question_number" },
+  { id: "pmg-x", order_by: "PMG-X" },
+  { id: "pmg-d", order_by: "PMG-D" },
+  { id: "last-attempt", order_by: "DSLA" },
+  { id: "lami", order_by: "LaMI" },
+  { id: "q-no", order_by: "number" },
 ];
 
 let questionsTableMiniTh: HTMLTableCellElement;
@@ -43,12 +43,12 @@ async function reloadPage() {
 
   let order_by =
     metricRadios.find((radio) => radio.id === selectedRadioId)?.order_by ??
-    "potential_memory_gain_multiplier";
+    "PMG-X";
 
   let order;
 
-  if (order_by === "question_number") {
-    metric_name = "potential_memory_gain_multiplier";
+  if (order_by === "number") {
+    metric_name = "PMG-X";
     order = "asc";
   } else {
     order = "desc";
@@ -80,13 +80,22 @@ function reorderAndFilterQuestions(
   let filteredQuestions = questions;
 
   filteredQuestions.sort((a, b) => {
-    const aVal = isNaN(Number(a[order_by])) ? a[order_by] : Number(a[order_by]);
-    const bVal = isNaN(Number(b[order_by])) ? b[order_by] : Number(b[order_by]);
+    let aVal, bVal;
+    if (order_by === "number") {
+      aVal = a[order_by];
+      bVal = b[order_by];
+    } else {
+      aVal = a.spaced_repetition_variables[order_by];
+      bVal = b.spaced_repetition_variables[order_by];
+    }
 
-    if (typeof aVal === "string" && typeof bVal !== "string") return 1;
-    if (typeof bVal === "string" && typeof aVal !== "string") return -1;
-    if (aVal < bVal) return order === "desc" ? 1 : -1;
-    if (aVal > bVal) return order === "desc" ? -1 : 1;
+    const numA = isNaN(Number(aVal)) ? aVal : Number(aVal);
+    const numB = isNaN(Number(bVal)) ? bVal : Number(bVal);
+
+    if (typeof numA === "string" && typeof numB !== "string") return 1;
+    if (typeof numB === "string" && typeof numA !== "string") return -1;
+    if (numA < numB) return order === "desc" ? 1 : -1;
+    if (numA > numB) return order === "desc" ? -1 : 1;
     return 0;
   });
 
@@ -116,14 +125,14 @@ function loadHTMLQuestionsTableMini(metric_name: string) {
         cellData.classList.add("p-2", "text-center", "align-middle");
         cellData.innerHTML =
           "q" +
-          questions[cell_index]["question_number"] +
+          questions[cell_index]["number"] +
           "<br>" +
-          questions[cell_index][metric_name];
+          questions[cell_index].spaced_repetition_variables[metric_name];
         cellData.style.border = "none";
 
-        if (metric_name == "potential_memory_gain_multiplier") {
-          cellData.style.backgroundColor = `rgba(${questions[cell_index]["PMG-X Cell Color"]})`;
-          if (questions[cell_index]["potential_memory_gain_multiplier"] <= 1) {
+        if (metric_name == "PMG-X") {
+          cellData.style.backgroundColor = `rgba(${questions[cell_index].spaced_repetition_variables["PMG-X_cell_color"]})`;
+          if (questions[cell_index].spaced_repetition_variables["PMG-X"] <= 1) {
             cellData.style.color = "rgba(0, 0, 0, 0.2)"; // 20 %-opaque black
           }
         }
@@ -179,27 +188,40 @@ function loadHTMLQuestionsTable() {
   for (let i = 0; i < questions.length; i++) {
     commonTableRow = document.createElement("tr");
     const columns = [
-      "question_number",
-      "discipline",
-      "source",
-      "description",
-      "attempts_summary",
-      "days_since_last_attempt",
-      "latest_memory_interval",
-      "potential_memory_gain_in_days",
-      "potential_memory_gain_multiplier",
+      "number",
+      "tags.0",
+      "tags.1",
+      "proposition",
+      "spaced_repetition_variables.attempts_summary",
+      "spaced_repetition_variables.DSLA",
+      "spaced_repetition_variables.LaMI",
+      "spaced_repetition_variables.PMG-D",
+      "spaced_repetition_variables.PMG-X",
       // 'Action buttons' will be handled separately
     ];
 
     columns.forEach((col) => {
       const td = document.createElement("td");
-      td.textContent = questions[i][col] !== undefined ? questions[i][col] : "";
+      let value;
+      if (col.includes(".")) {
+        const parts = col.split(".");
+        if (parts.length === 2) {
+          if (parts[1] === "0" || parts[1] === "1") {
+            value = questions[i][parts[0]][parseInt(parts[1])];
+          } else {
+            value = questions[i][parts[0]][parts[1]];
+          }
+        }
+      } else {
+        value = questions[i][col];
+      }
+      td.textContent = value !== undefined ? value : "";
       td.classList.add("align-middle");
       commonTableRow.appendChild(td);
 
-      if (col == "potential_memory_gain_multiplier") {
-        td.style.backgroundColor = `rgba(${questions[i]["PMG-X Cell Color"]})`;
-        if (questions[i]["potential_memory_gain_multiplier"] <= 1) {
+      if (col == "spaced_repetition_variables.PMG-X") {
+        td.style.backgroundColor = `rgba(${questions[i].spaced_repetition_variables["PMG-X_cell_color"]})`;
+        if (questions[i].spaced_repetition_variables["PMG-X"] <= 1) {
           td.style.color = "rgba(0, 0, 0, 0.2)"; // 20 %-opaque black
         }
       }
@@ -207,7 +229,7 @@ function loadHTMLQuestionsTable() {
 
     const actionTd = document.createElement("td");
 
-    addActionButtonsToCellData(actionTd, questions[i]["question_number"]);
+    addActionButtonsToCellData(actionTd, questions[i]["number"]);
     commonTableRow.appendChild(actionTd);
 
     tableBody.appendChild(commonTableRow);
@@ -215,29 +237,29 @@ function loadHTMLQuestionsTable() {
   questionsTable.appendChild(tableBody);
 }
 
-function postQuestion(discipline: string, source: string, description: string) {
+function postQuestion(tags: string[], proposition: string) {
   fetch("/api/questions/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ discipline, source, description }),
+    body: JSON.stringify({ tags, proposition }),
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.error) {
         alert(data.error);
       } else {
-        alert(`Question created with ID: ${data.question_number}`);
+        alert(`Question created with ID: ${data.number}`);
         loadQuestionsFromDB();
       }
     })
     .catch((err) => console.error("Error:", err));
 }
 
-function postAttempt(question_number: number, code: number) {
+function postAttempt(number: number, code: number) {
   fetch("/api/questions/attempt", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question_number, code }),
+    body: JSON.stringify({ number, code }),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -253,7 +275,7 @@ function postAttempt(question_number: number, code: number) {
 
 function addActionButtonsToCellData(
   cellData: HTMLTableCellElement,
-  question_number: number
+  number: number
 ) {
   const buttonContainer = document.createElement("div");
   buttonContainer.className =
@@ -263,7 +285,7 @@ function addActionButtonsToCellData(
   button0.className = "btn btn-outline-warning";
   button0.textContent = "0";
   button0.onclick = function () {
-    postAttempt(question_number, 0);
+    postAttempt(number, 0);
   };
   buttonContainer.appendChild(button0);
 
@@ -271,7 +293,7 @@ function addActionButtonsToCellData(
   button1.className = "btn btn-outline-success";
   button1.textContent = "1";
   button1.onclick = function () {
-    postAttempt(question_number, 1);
+    postAttempt(number, 1);
   };
   buttonContainer.appendChild(button1);
 
