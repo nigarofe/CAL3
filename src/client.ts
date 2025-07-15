@@ -375,15 +375,30 @@ export function initializeEditQuestionForm() {
   const editQuestionForm = document.getElementById(
     "edit-question-form"
   ) as HTMLFormElement;
+  const lineNumbers = document.querySelector(".line-numbers") as HTMLDivElement;
 
   if (
     !questionSelector ||
     !editQuestionForm ||
     !rawContentInput ||
-    !renderedContentOutput
+    !renderedContentOutput ||
+    !lineNumbers
   ) {
     return;
   }
+
+  const updateLineNumbers = () => {
+    const lineCount = rawContentInput.value.split("\n").length;
+    lineNumbers.innerHTML = Array.from(
+      { length: lineCount },
+      (_, i) => `<div>${i + 1}</div>`
+    ).join("");
+  };
+
+  rawContentInput.addEventListener("input", updateLineNumbers);
+  rawContentInput.addEventListener("scroll", () => {
+    lineNumbers.scrollTop = rawContentInput.scrollTop;
+  });
 
   const populateSelector = () => {
     questionSelector.innerHTML =
@@ -417,6 +432,7 @@ export function initializeEditQuestionForm() {
 
     renderedContentOutput.innerHTML = renderedHTML.replace(/\n/g, "<br />");
     (window as any).renderMath();
+    updateLineNumbers();
   };
 
   questionSelector.addEventListener("change", () => {
@@ -435,15 +451,15 @@ export function initializeEditQuestionForm() {
 
       rawContentInput.value = `<proposition>
 ${proposition}
-</proposition>
+<\/proposition>
 
 <step-by-step>
 ${stepByStep}
-</step-by-step>
+<\/step-by-step>
 
 <answer>
 ${answer}
-</answer>`;
+<\/answer>`;
 
       tagsInput.value = selectedQuestion.tags.join(", ");
       renderContent();
@@ -491,6 +507,7 @@ ${answer}
       updatedQuestion.tags
     );
   });
+  updateLineNumbers();
 }
 
 export function initializeAddQuestionForm() {
