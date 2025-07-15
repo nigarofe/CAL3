@@ -12,24 +12,25 @@ const metricRadios = [
   { id: "q-no", order_by: "question_number" },
 ];
 
-const questionsTableMiniTh = document.getElementById(
-  "questions-table-mini-th"
-) as HTMLTableCellElement;
-const questionsTableMiniBody = document.getElementById(
-  "questions-table-mini-body"
-) as HTMLTableSectionElement;
-const questionsTableMini = document.getElementById(
-  "questions-table-mini"
-) as HTMLTableElement;
-const questionsTable = document.getElementById(
-  "questions-table"
-) as HTMLTableElement;
-
-window.addEventListener("DOMContentLoaded", async () => {
-  reloadPage();
-});
+let questionsTableMiniTh: HTMLTableCellElement;
+let questionsTableMiniBody: HTMLTableSectionElement;
+let questionsTableMini: HTMLTableElement;
+let questionsTable: HTMLTableElement;
 
 async function reloadPage() {
+  questionsTableMiniTh = document.getElementById(
+    "questionsTableMiniTh"
+  ) as HTMLTableCellElement;
+  questionsTableMiniBody = document.getElementById(
+    "questionsTableMiniBody"
+  ) as HTMLTableSectionElement;
+  questionsTableMini = document.getElementById(
+    "questionsTableMini"
+  ) as HTMLTableElement;
+  questionsTable = document.getElementById(
+    "questionsTable"
+  ) as HTMLTableElement;
+
   await loadQuestionsFromDB();
   let selectedRadio = document.querySelector(
     'input[name="metric"]:checked'
@@ -226,7 +227,11 @@ function loadHTMLQuestionsTable() {
   questionsTable.appendChild(tableBody);
 }
 
-function postQuestion(discipline: string, source: string, description: string) {
+function postQuestion(
+  discipline: string,
+  source: string,
+  description: string
+) {
   fetch("/api/questions/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

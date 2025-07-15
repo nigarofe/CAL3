@@ -19,6 +19,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client')));
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 app.use(express.static(path.join(__dirname, '../compiled')));
+app.use(express.static(path.join(__dirname, '../src')));
+
 
 const postRoutes = createPostRoutes(db);
 app.use('/api', postRoutes);

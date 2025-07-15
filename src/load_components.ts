@@ -1,6 +1,13 @@
 declare const bootstrap: any;
 
-async function loadComponent(url: string, placeholderId: string) {
+async function loadComponent(url: string) {
+  const componentName = url.split("/").pop()?.split(".")[0];
+  if (!componentName) {
+    console.error(`Invalid component URL: ${url}`);
+    return;
+  }
+  const placeholderId = `${componentName}-container`;
+
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -10,6 +17,8 @@ async function loadComponent(url: string, placeholderId: string) {
     const placeholder = document.getElementById(placeholderId);
     if (placeholder) {
       placeholder.innerHTML = html;
+    } else {
+      console.error(`Placeholder element not found: ${placeholderId}`);
     }
   } catch (error) {
     console.error(`Failed to load component ${url}:`, error);
@@ -20,97 +29,77 @@ async function loadComponent(url: string, placeholderId: string) {
   }
 }
 
-let questionsTableMini: HTMLElement | null,
-  questionsTableMiniTh: HTMLElement | null,
-  questionsTableMiniBody: HTMLElement | null,
-  questionsTable: HTMLElement | null;
-
-const metricRadios = [
-  { id: "metric-question_number", order_by: "question_number" },
-  { id: "metric-pmgx", order_by: "potential_memory_gain_multiplier" },
-  { id: "metric-pmgd", order_by: "potential_memory_gain_in_days" },
-  { id: "metric-lami", order_by: "latest_memory_interval" },
-  { id: "metric-dsla", order_by: "days_since_last_attempt" },
-];
-
 document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("components/toast.html", "toast-container-placeholder").then(
-    () => {
-      showToast("Welcome!", "This is a sample toast message.", "Just now");
-    }
-  );
-  loadComponent("components/sticky-navbar.html", "navbar-container").then(
-    () => {
-      metricRadios.forEach((radio) => {
-        const el = document.getElementById(radio.id);
-        if (el) {
-          el.addEventListener("change", function () {
-            (window as any).reloadPage();
-          });
-        }
-      });
-    }
-  );
-  loadComponent(
-    "components/add-question-form.html",
-    "add-question-form-container"
-  );
-  loadComponent(
-    "components/questions-table-mini.html",
-    "questions-table-mini-container"
-  ).then(() => {
-    questionsTableMini = document.getElementById("questionsTableMini");
-    questionsTableMiniTh = document.getElementById("questionsTableMiniTh");
-    questionsTableMiniBody = document.getElementById("questionsTableMiniBody");
-  });
-  loadComponent(
-    "components/questions-table.html",
-    "questions-table-container"
-  ).then(() => {
-    questionsTable = document.getElementById("questionsTable");
-  });
+  Promise.all([
+    loadComponent("components/toast.html"),
+    loadComponent("components/sticky-navbar.html"),
+    loadComponent("components/add-question-form.html"),
+    loadComponent("components/questions-table-mini.html"),
+    loadComponent("components/questions-table.html"),
+  ]).then(() => {
+    (window as any).reloadPage();
+    showToast("Welcome!", "This is a sample toast message.", "Just now");
 
-  const questionCreationform = document.getElementById(
-    "add-question-form-container"
-  );
+    const metricRadios = [
+      { id: "metric-question_number", order_by: "question_number" },
+      { id: "metric-pmgx", order_by: "potential_memory_gain_multiplier" },
+      { id: "metric-pmgd", order_by: "potential_memory_gain_in_days" },
+      { id: "metric-lami", order_by: "latest_memory_interval" },
+      { id: "metric-dsla", order_by: "days_since_last_attempt" },
+    ];
 
-  if (questionCreationform) {
-    questionCreationform.addEventListener("submit", () => {
-      const discipline = (
-        document.getElementById("discipline") as HTMLInputElement
-      ).value;
-      const source = (document.getElementById("source") as HTMLInputElement)
-        .value;
-      const description = (
-        document.getElementById("description") as HTMLInputElement
-      ).value;
-
-      (window as any).postQuestion(discipline, source, description);
-    });
-  }
-
-  const navbarContainer = document.getElementById("navbar-container");
-  if (navbarContainer) {
-    const observer = new MutationObserver(() => {
-      const el_autohide = document.querySelector(".autohide");
-      if (el_autohide) {
-        let last_scroll_top = 0;
-        window.addEventListener("scroll", function () {
-          let scroll_top = window.scrollY;
-          if (scroll_top < last_scroll_top) {
-            el_autohide.classList.remove("scrolled-down");
-            el_autohide.classList.add("scrolled-up");
-          } else {
-            el_autohide.classList.remove("scrolled-up");
-            el_autohide.classList.add("scrolled-down");
-          }
-          last_scroll_top = scroll_top;
+    metricRadios.forEach((radio) => {
+      const el = document.getElementById(radio.id);
+      if (el) {
+        el.addEventListener("change", function () {
+          (window as any).reloadPage();
         });
-        observer.disconnect();
       }
     });
-    observer.observe(navbarContainer, { childList: true });
-  }
+
+    const questionCreationform = document.getElementById(
+      "add-question-form-container"
+    );
+
+    if (questionCreationform) {
+      questionCreationform.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const discipline = (
+          document.getElementById("discipline") as HTMLInputElement
+        ).value;
+        const source = (document.getElementById("source") as HTMLInputElement)
+          .value;
+        const description = (
+          document.getElementById("description") as HTMLInputElement
+        ).value;
+
+        (window as any).postQuestion(discipline, source, description);
+      });
+    }
+
+    const navbarContainer = document.getElementById("sticky-navbar-container");
+    if (navbarContainer) {
+      const observer = new MutationObserver(() => {
+        const el_autohide = document.querySelector(".autohide");
+        if (el_autohide) {
+          let last_scroll_top = 0;
+          window.addEventListener("scroll", function () {
+            let scroll_top = window.scrollY;
+            if (scroll_top < last_scroll_top) {
+              el_autohide.classList.remove("scrolled-down");
+              el_autohide.classList.add("scrolled-up");
+            } else {
+              el_autohide.classList.remove("scrolled-up");
+              el_autohide.classList.add("scrolled-down");
+            }
+            last_scroll_top = scroll_top;
+          });
+          observer.disconnect();
+        }
+      });
+      observer.observe(navbarContainer, { childList: true });
+    }
+  });
 });
 
 function showToast(
