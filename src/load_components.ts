@@ -1,4 +1,4 @@
-import { initializeEditForm } from "./client.js";
+import { initializeEditForm, initializeEditQuestionForm } from "./client.js";
 declare const bootstrap: any;
 declare const renderMathInElement: any;
 
@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     initializeEditForm();
+    initializeEditQuestionForm();
     renderMathInElement(document.body, {
       delimiters: [
         { left: "$", right: "$", display: true },

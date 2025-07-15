@@ -302,6 +302,105 @@ function addActionButtonsToCellData(
   cellData.appendChild(buttonContainer);
 }
 
+export function initializeEditQuestionForm() {
+  const questionSelector = document.getElementById('question-selector') as HTMLSelectElement;
+  const rawContentInput = document.getElementById('raw-content-input') as HTMLTextAreaElement;
+  const renderedContentOutput = document.getElementById('rendered-content-output') as HTMLDivElement;
+  const tagsInput = document.getElementById('question-tags') as HTMLInputElement;
+  const editQuestionForm = document.getElementById('edit-question-form') as HTMLFormElement;
+
+  if (!questionSelector || !editQuestionForm || !rawContentInput || !renderedContentOutput) {
+    return;
+  }
+
+  const populateSelector = () => {
+    questionSelector.innerHTML = '<option selected disabled>Select a question...</option>';
+    questions.forEach(q => {
+      const option = document.createElement('option');
+      option.value = q.number;
+      option.textContent = `Q${q.number}`;
+      questionSelector.appendChild(option);
+    });
+  };
+
+  if (questions.length > 0) {
+    populateSelector();
+  } else {
+    loadQuestionsFromDB().then(() => {
+      populateSelector();
+    });
+  }
+
+  const renderContent = () => {
+    const rawText = rawContentInput.value;
+    // Simple replacement of tags for rendering. For security in a real app, this should be sanitized.
+    const renderedHTML = rawText
+      .replace(/<proposition>/g, '<h3>Proposition</h3>')
+      .replace(/<\/proposition>/g, '<hr>')
+      .replace(/<step-by-step>/g, '<h3>Step-by-step</h3>')
+      .replace(/<\/step-by-step>/g, '<hr>')
+      .replace(/<answer>/g, '<h3>Answer</h3>')
+      .replace(/<\/answer>/g, '');
+      
+    renderedContentOutput.innerHTML = renderedHTML;
+    (window as any).renderMath();
+  };
+
+  questionSelector.addEventListener('change', () => {
+    const selectedQuestionNumber = parseInt(questionSelector.value, 10);
+    const selectedQuestion = questions.find(q => q.number === selectedQuestionNumber);
+
+    if (selectedQuestion) {
+      const proposition = selectedQuestion.proposition || '';
+      const stepByStep = selectedQuestion['step-by-step'] || '';
+      const answer = selectedQuestion.answer || '';
+
+      rawContentInput.value = 
+`<proposition>
+${proposition}
+</proposition>
+
+<step-by-step>
+${stepByStep}
+</step-by-step>
+
+<answer>
+${answer}
+</answer>`;
+      
+      tagsInput.value = selectedQuestion.tags.join(', ');
+      renderContent();
+    }
+  });
+
+  rawContentInput.addEventListener('input', renderContent);
+
+  editQuestionForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const selectedQuestionNumber = parseInt(questionSelector.value, 10);
+    if (isNaN(selectedQuestionNumber)) {
+      alert('Please select a question first.');
+      return;
+    }
+
+    const rawText = rawContentInput.value;
+    const propositionMatch = rawText.match(/<proposition>([\s\S]*?)<\/proposition>/);
+    const stepByStepMatch = rawText.match(/<step-by-step>([\s\S]*?)<\/step-by-step>/);
+    const answerMatch = rawText.match(/<answer>([\s\S]*?)<\/answer>/);
+
+    const updatedQuestion = {
+      number: selectedQuestionNumber,
+      proposition: propositionMatch ? propositionMatch[1].trim() : '',
+      'step-by-step': stepByStepMatch ? stepByStepMatch[1].trim() : '',
+      answer: answerMatch ? answerMatch[1].trim() : '',
+      tags: tagsInput.value.split(',').map(t => t.trim()),
+    };
+
+    console.log('Submitting updated question:', updatedQuestion);
+    alert('Submitting to the console. Server-side update not yet implemented.');
+  });
+}
+
 export function initializeEditForm() {
   const rawInput = document.getElementById(
     "raw-code-input"
