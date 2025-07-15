@@ -375,29 +375,42 @@ export function initializeEditQuestionForm() {
   const editQuestionForm = document.getElementById(
     "edit-question-form"
   ) as HTMLFormElement;
-  const lineNumbers = document.querySelector(".line-numbers") as HTMLDivElement;
+  const rawLineNumbers = document.querySelector(
+    ".raw-line-numbers"
+  ) as HTMLDivElement;
+  const renderedLineNumbers = document.querySelector(
+    ".rendered-line-numbers"
+  ) as HTMLDivElement;
 
   if (
     !questionSelector ||
     !editQuestionForm ||
     !rawContentInput ||
     !renderedContentOutput ||
-    !lineNumbers
+    !rawLineNumbers ||
+    !renderedLineNumbers
   ) {
     return;
   }
 
   const updateLineNumbers = () => {
     const lineCount = rawContentInput.value.split("\n").length;
-    lineNumbers.innerHTML = Array.from(
+    const lineNumbersHTML = Array.from(
       { length: lineCount },
       (_, i) => `<div>${i + 1}</div>`
     ).join("");
+    rawLineNumbers.innerHTML = lineNumbersHTML;
+    renderedLineNumbers.innerHTML = lineNumbersHTML;
   };
 
   rawContentInput.addEventListener("input", updateLineNumbers);
   rawContentInput.addEventListener("scroll", () => {
-    lineNumbers.scrollTop = rawContentInput.scrollTop;
+    rawLineNumbers.scrollTop = rawContentInput.scrollTop;
+    renderedLineNumbers.scrollTop = rawContentInput.scrollTop;
+  });
+  renderedContentOutput.addEventListener("scroll", () => {
+    renderedLineNumbers.scrollTop = renderedContentOutput.scrollTop;
+    rawContentInput.scrollTop = renderedContentOutput.scrollTop;
   });
 
   const populateSelector = () => {
@@ -449,17 +462,7 @@ export function initializeEditQuestionForm() {
       const stepByStep = selectedQuestion["step-by-step"] || "";
       const answer = selectedQuestion.answer || "";
 
-      rawContentInput.value = `<proposition>
-${proposition}
-<\/proposition>
-
-<step-by-step>
-${stepByStep}
-<\/step-by-step>
-
-<answer>
-${answer}
-<\/answer>`;
+      rawContentInput.value = `<proposition>\n${proposition}\n<\/proposition>\n\n<step-by-step>\n${stepByStep}\n<\/step-by-step>\n\n<answer>\n${answer}\n<\/answer>`;
 
       tagsInput.value = selectedQuestion.tags.join(", ");
       renderContent();

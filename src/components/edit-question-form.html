@@ -45,7 +45,7 @@
       <div class="col-md-6 mg-0 p-0">
         <h3>Raw Content</h3>
         <div class="position-relative">
-          <div class="line-numbers"><span>1</span></div>
+          <div class="line-numbers raw-line-numbers"><span>1</span></div>
           <textarea
             id="raw-content-input"
             class="form-control"
@@ -55,11 +55,14 @@
       </div>
       <div class="col-md-6 mg-0 p-0">
         <h3>Rendered Content</h3>
-        <div
-          id="rendered-content-output"
-          class="border rounded p-3"
-          style="height: 60vh; overflow-y: auto"
-        ></div>
+        <div class="position-relative">
+          <div class="line-numbers rendered-line-numbers"><span>1</span></div>
+          <div
+            id="rendered-content-output"
+            class="border rounded p-3"
+            style="height: 60vh; overflow-y: auto; padding-left: 50px !important; line-height: 1.5; font-family: monospace;"
+          ></div>
+        </div>
       </div>
     </div>
 
