@@ -60,20 +60,10 @@ async function reloadPage() {
   loadHTMLQuestionsTable();
 }
 
-const JSON_LOADER_1 = document.getElementById("JSON_LOADER_1");
-
 function loadQuestionsFromDB() {
   return fetch("/api/questions")
     .then((res) => res.json())
     .then((fetchedQuestions) => {
-      if (JSON_LOADER_1) {
-        JSON_LOADER_1.innerHTML = "";
-        fetchedQuestions.forEach((item: any) => {
-          const pre = document.createElement("pre");
-          pre.textContent = JSON.stringify(item, null, 2);
-          JSON_LOADER_1.appendChild(pre);
-        });
-      }
       questions = fetchedQuestions;
       return fetchedQuestions;
     });

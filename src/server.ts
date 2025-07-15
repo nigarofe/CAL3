@@ -3,8 +3,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { initializeDatabase } from './db.js';
-import createPostRoutes from './routes_post.js';
-import createGetRoutes from './routes_get.js';
+import createPostRoutes from './server_post.js';
+import createGetRoutes from './server_get.js';
 
 // Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
