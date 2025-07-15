@@ -1,3 +1,4 @@
+declare const renderMathInElement: any;
 let questions: any[] = [];
 let metric_name: string;
 let tableHead: HTMLTableSectionElement = document.createElement("thead");
@@ -58,6 +59,7 @@ async function reloadPage() {
   reorderAndFilterQuestions(order, order_by, "");
   loadHTMLQuestionsTableMini(metric_name);
   loadHTMLQuestionsTable();
+  (window as any).renderMath();
 }
 
 function loadQuestionsFromDB() {
@@ -123,10 +125,10 @@ function loadHTMLQuestionsTableMini(metric_name: string) {
       if (cell_index < numberOfQuestionsToBeDisplayed) {
         const cellData = document.createElement("td");
         cellData.classList.add("p-2", "text-center", "align-middle");
-        cellData.innerHTML =
+        cellData.innerText =
           "q" +
           questions[cell_index]["number"] +
-          "<br>" +
+          "\n" +
           questions[cell_index].spaced_repetition_variables[metric_name];
         cellData.style.border = "none";
 
@@ -215,7 +217,7 @@ function loadHTMLQuestionsTable() {
       } else {
         value = questions[i][col];
       }
-      td.textContent = value !== undefined ? value : "";
+      td.innerText = value !== undefined ? value : "";
       td.classList.add("align-middle");
       commonTableRow.appendChild(td);
 
@@ -249,7 +251,7 @@ function postQuestion(tags: string[], proposition: string) {
         alert(data.error);
       } else {
         alert(`Question created with ID: ${data.number}`);
-        loadQuestionsFromDB();
+        reloadPage();
       }
     })
     .catch((err) => console.error("Error:", err));
@@ -300,7 +302,8 @@ function addActionButtonsToCellData(
   cellData.appendChild(buttonContainer);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+
+export function initializeEditForm() {
   const rawInput = document.getElementById(
     "raw-code-input"
   ) as HTMLTextAreaElement;
@@ -310,7 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (rawInput && renderedOutput) {
     const renderContent = () => {
-      renderedOutput.innerHTML = rawInput.value;
+      renderedOutput.innerText = rawInput.value;
+      (window as any).renderMath();
     };
 
     rawInput.addEventListener("input", renderContent);
@@ -318,7 +322,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial render in case there's pre-filled content
     renderContent();
   }
-});
+}
 
 (window as any).reloadPage = reloadPage;
 (window as any).postQuestion = postQuestion;
+
+(window as any).renderMath = () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "$", right: "$", display: true },
+      { left: "$", right: "$", display: false },
+      { left: "\\(", right: "\\)", display: false },
+      { left: "\\[", right: "\\]", display: true }
+    ],
+    throwOnError: false
+  });
+};

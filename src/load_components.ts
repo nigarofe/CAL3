@@ -1,4 +1,7 @@
+import { initializeEditForm } from "./client.js";
 declare const bootstrap: any;
+declare const renderMathInElement: any;
+
 
 async function loadComponent(url: string) {
   const componentName = url.split("/").pop()?.split(".")[0];
@@ -108,6 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     }
+    initializeEditForm();
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$", right: "$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+      throwOnError: false
+    });
   });
 });
 
@@ -129,3 +142,4 @@ function showToast(
 
   toastBootstrap.show();
 }
+

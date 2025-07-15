@@ -21,8 +21,10 @@
   "homepage": "https://github.com/nigarofe/CAL3#readme",
   "description": "",
   "dependencies": {
+    "@types/katex": "^0.16.7",
     "bootstrap": "^5.3.7",
     "jest": "^30.0.4",
+    "katex": "^0.16.22",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
