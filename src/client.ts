@@ -302,7 +302,6 @@ function addActionButtonsToCellData(
   cellData.appendChild(buttonContainer);
 }
 
-
 export function initializeEditForm() {
   const rawInput = document.getElementById(
     "raw-code-input"
@@ -329,12 +328,15 @@ export function initializeEditForm() {
 
 (window as any).renderMath = () => {
   renderMathInElement(document.body, {
+    // customised options
+    // • auto-render specific keys, e.g.:
     delimiters: [
-      { left: "$", right: "$", display: true },
+      { left: "$$", right: "$$", display: true },
       { left: "$", right: "$", display: false },
       { left: "\\(", right: "\\)", display: false },
-      { left: "\\[", right: "\\]", display: true }
+      { left: "\\[", right: "\\]", display: true },
     ],
-    throwOnError: false
+    // • rendering keys, e.g.:
+    throwOnError: false,
   });
 };
