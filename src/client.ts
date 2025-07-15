@@ -191,9 +191,9 @@ function loadHTMLQuestionsTable() {
     commonTableRow = document.createElement("tr");
     const columns = [
       "number",
-      "tags.0",
-      "tags.1",
-      "proposition",
+      "discipline",
+      "source",
+      "description",
       "spaced_repetition_variables.attempts_summary",
       "spaced_repetition_variables.DSLA",
       "spaced_repetition_variables.LaMI",
@@ -208,11 +208,7 @@ function loadHTMLQuestionsTable() {
       if (col.includes(".")) {
         const parts = col.split(".");
         if (parts.length === 2) {
-          if (parts[1] === "0" || parts[1] === "1") {
-            value = questions[i][parts[0]][parseInt(parts[1])];
-          } else {
-            value = questions[i][parts[0]][parts[1]];
-          }
+          value = questions[i][parts[0]][parts[1]];
         }
       } else {
         value = questions[i][col];
@@ -239,23 +235,75 @@ function loadHTMLQuestionsTable() {
   questionsTable.appendChild(tableBody);
 }
 
-function postQuestion(tags: string[], proposition: string) {
+function postQuestion(
+  discipline: string,
+  source: string,
+  description: string,
+  proposition: string,
+  step_by_step: string,
+  answer: string,
+  tags: string[]
+) {
   fetch("/api/questions/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ tags, proposition }),
+    body: JSON.stringify({
+      discipline,
+      source,
+      description,
+      proposition,
+      step_by_step,
+      answer,
+      tags,
+    }),
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.error) {
         alert(data.error);
       } else {
-        alert(`Question created with ID: ${data.number}`);
+        alert(`Question created with ID: ${data.question_number}`);
         reloadPage();
       }
     })
     .catch((err) => console.error("Error:", err));
 }
+
+function updateQuestion(
+  number: number,
+  discipline: string,
+  source: string,
+  description: string,
+  proposition: string,
+  step_by_step: string,
+  answer: string,
+  tags: string[]
+) {
+  fetch(`/api/questions/update/${number}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      discipline,
+      source,
+      description,
+      proposition,
+      step_by_step,
+      answer,
+      tags,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.error) {
+        alert(data.error);
+      } else {
+        alert(data.message);
+        reloadPage();
+      }
+    })
+    .catch((err) => console.error("Error:", err));
+}
+
 
 function postAttempt(number: number, code: number) {
   fetch("/api/questions/attempt", {
@@ -303,20 +351,45 @@ function addActionButtonsToCellData(
 }
 
 export function initializeEditQuestionForm() {
-  const questionSelector = document.getElementById('question-selector') as HTMLSelectElement;
-  const rawContentInput = document.getElementById('raw-content-input') as HTMLTextAreaElement;
-  const renderedContentOutput = document.getElementById('rendered-content-output') as HTMLDivElement;
-  const tagsInput = document.getElementById('question-tags') as HTMLInputElement;
-  const editQuestionForm = document.getElementById('edit-question-form') as HTMLFormElement;
+  const questionSelector = document.getElementById(
+    "question-selector"
+  ) as HTMLSelectElement;
+  const rawContentInput = document.getElementById(
+    "raw-content-input"
+  ) as HTMLTextAreaElement;
+  const renderedContentOutput = document.getElementById(
+    "rendered-content-output"
+  ) as HTMLDivElement;
+  const disciplineInput = document.getElementById(
+    "question-discipline"
+  ) as HTMLInputElement;
+  const sourceInput = document.getElementById(
+    "question-source"
+  ) as HTMLInputElement;
+  const descriptionInput = document.getElementById(
+    "question-description"
+  ) as HTMLInputElement;
+  const tagsInput = document.getElementById(
+    "question-tags"
+  ) as HTMLInputElement;
+  const editQuestionForm = document.getElementById(
+    "edit-question-form"
+  ) as HTMLFormElement;
 
-  if (!questionSelector || !editQuestionForm || !rawContentInput || !renderedContentOutput) {
+  if (
+    !questionSelector ||
+    !editQuestionForm ||
+    !rawContentInput ||
+    !renderedContentOutput
+  ) {
     return;
   }
 
   const populateSelector = () => {
-    questionSelector.innerHTML = '<option selected disabled>Select a question...</option>';
-    questions.forEach(q => {
-      const option = document.createElement('option');
+    questionSelector.innerHTML =
+      "<option selected disabled>Select a question...</option>";
+    questions.forEach((q) => {
+      const option = document.createElement("option");
       option.value = q.number;
       option.textContent = `Q${q.number}`;
       questionSelector.appendChild(option);
@@ -335,28 +408,32 @@ export function initializeEditQuestionForm() {
     const rawText = rawContentInput.value;
     // Simple replacement of tags for rendering. For security in a real app, this should be sanitized.
     const renderedHTML = rawText
-      .replace(/<proposition>/g, '<h3>Proposition</h3>')
-      .replace(/<\/proposition>/g, '<hr>')
-      .replace(/<step-by-step>/g, '<h3>Step-by-step</h3>')
-      .replace(/<\/step-by-step>/g, '<hr>')
-      .replace(/<answer>/g, '<h3>Answer</h3>')
-      .replace(/<\/answer>/g, '');
-      
+      .replace(/<proposition>/g, "<h3>Proposition</h3>")
+      .replace(/<\/proposition>/g, "<hr>")
+      .replace(/<step-by-step>/g, "<h3>Step-by-step</h3>")
+      .replace(/<\/step-by-step>/g, "<hr>")
+      .replace(/<answer>/g, "<h3>Answer</h3>")
+      .replace(/<\/answer>/g, "");
+
     renderedContentOutput.innerHTML = renderedHTML;
     (window as any).renderMath();
   };
 
-  questionSelector.addEventListener('change', () => {
+  questionSelector.addEventListener("change", () => {
     const selectedQuestionNumber = parseInt(questionSelector.value, 10);
-    const selectedQuestion = questions.find(q => q.number === selectedQuestionNumber);
+    const selectedQuestion = questions.find(
+      (q) => q.number === selectedQuestionNumber
+    );
 
     if (selectedQuestion) {
-      const proposition = selectedQuestion.proposition || '';
-      const stepByStep = selectedQuestion['step-by-step'] || '';
-      const answer = selectedQuestion.answer || '';
+      disciplineInput.value = selectedQuestion.discipline || "";
+      sourceInput.value = selectedQuestion.source || "";
+      descriptionInput.value = selectedQuestion.description || "";
+      const proposition = selectedQuestion.proposition || "";
+      const stepByStep = selectedQuestion["step-by-step"] || "";
+      const answer = selectedQuestion.answer || "";
 
-      rawContentInput.value = 
-`<proposition>
+      rawContentInput.value = `<proposition>
 ${proposition}
 </proposition>
 
@@ -367,39 +444,95 @@ ${stepByStep}
 <answer>
 ${answer}
 </answer>`;
-      
-      tagsInput.value = selectedQuestion.tags.join(', ');
+
+      tagsInput.value = selectedQuestion.tags.join(", ");
       renderContent();
     }
   });
 
-  rawContentInput.addEventListener('input', renderContent);
+  rawContentInput.addEventListener("input", renderContent);
 
-  editQuestionForm.addEventListener('submit', (event) => {
+  editQuestionForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const selectedQuestionNumber = parseInt(questionSelector.value, 10);
     if (isNaN(selectedQuestionNumber)) {
-      alert('Please select a question first.');
+      alert("Please select a question first.");
       return;
     }
 
     const rawText = rawContentInput.value;
-    const propositionMatch = rawText.match(/<proposition>([\s\S]*?)<\/proposition>/);
-    const stepByStepMatch = rawText.match(/<step-by-step>([\s\S]*?)<\/step-by-step>/);
+    const propositionMatch = rawText.match(
+      /<proposition>([\s\S]*?)<\/proposition>/
+    );
+    const stepByStepMatch = rawText.match(
+      /<step-by-step>([\s\S]*?)<\/step-by-step>/
+    );
     const answerMatch = rawText.match(/<answer>([\s\S]*?)<\/answer>/);
 
     const updatedQuestion = {
       number: selectedQuestionNumber,
-      proposition: propositionMatch ? propositionMatch[1].trim() : '',
-      'step-by-step': stepByStepMatch ? stepByStepMatch[1].trim() : '',
-      answer: answerMatch ? answerMatch[1].trim() : '',
-      tags: tagsInput.value.split(',').map(t => t.trim()),
+      discipline: disciplineInput.value,
+      source: sourceInput.value,
+      description: descriptionInput.value,
+      proposition: propositionMatch ? propositionMatch[1].trim() : "",
+      "step-by-step": stepByStepMatch ? stepByStepMatch[1].trim() : "",
+      answer: answerMatch ? answerMatch[1].trim() : "",
+      tags: tagsInput.value.split(",").map((t) => t.trim()),
     };
 
-    console.log('Submitting updated question:', updatedQuestion);
-    alert('Submitting to the console. Server-side update not yet implemented.');
+    updateQuestion(
+      updatedQuestion.number,
+      updatedQuestion.discipline,
+      updatedQuestion.source,
+      updatedQuestion.description,
+      updatedQuestion.proposition,
+      updatedQuestion["step-by-step"],
+      updatedQuestion.answer,
+      updatedQuestion.tags
+    );
   });
 }
+
+export function initializeAddQuestionForm() {
+  const addQuestionForm = document.getElementById(
+    "questionForm"
+  ) as HTMLFormElement;
+  if (addQuestionForm) {
+    addQuestionForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const discipline = (
+        document.getElementById("discipline") as HTMLInputElement
+      ).value;
+      const source = (document.getElementById("source") as HTMLInputElement)
+        .value;
+      const description = (
+        document.getElementById("description") as HTMLTextAreaElement
+      ).value;
+      const proposition = (
+        document.getElementById("proposition") as HTMLTextAreaElement
+      ).value;
+      const step_by_step = (
+        document.getElementById("step-by-step") as HTMLTextAreaElement
+      ).value;
+      const answer = (document.getElementById("answer") as HTMLTextAreaElement)
+        .value;
+      const tags = (document.getElementById("tags") as HTMLInputElement).value
+        .split(",")
+        .map((t) => t.trim());
+
+      postQuestion(
+        discipline,
+        source,
+        description,
+        proposition,
+        step_by_step,
+        answer,
+        tags
+      );
+    });
+  }
+}
+
 
 export function initializeEditForm() {
   const rawInput = document.getElementById(

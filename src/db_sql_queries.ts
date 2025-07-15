@@ -11,9 +11,19 @@ export const GET_QUESTIONS_SQL = `
     GROUP BY q.question_number
   `;
 
+export const GET_QUESTION_PROPOSITION_SQL = `
+  SELECT proposition, step_by_step FROM questions WHERE question_number = ?
+`;
+
 export const CREATE_QUESTION_SQL = `
-    INSERT INTO questions (discipline, source, description)
-    VALUES (?, ?, ?)
+    INSERT INTO questions (discipline, source, description, proposition, step_by_step, answer, tags)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+`;
+
+export const UPDATE_QUESTION_SQL = `
+    UPDATE questions
+    SET discipline = ?, source = ?, description = ?, proposition = ?, step_by_step = ?, answer = ?, tags = ?
+    WHERE question_number = ?
 `;
 
 export const INSERT_ATTEMPT_SQL = `
@@ -28,7 +38,11 @@ export const CREATE_TABLES_SQL = `
       question_number INTEGER PRIMARY KEY AUTOINCREMENT,
       discipline      TEXT    NOT NULL,
       source          TEXT    NOT NULL,
-      description     TEXT    NOT NULL
+      description     TEXT    NOT NULL,
+      proposition     TEXT    NOT NULL,
+      step_by_step    TEXT,
+      answer          TEXT    NOT NULL,
+      tags            TEXT    NOT NULL
     );
 
     CREATE TABLE IF NOT EXISTS attempts (

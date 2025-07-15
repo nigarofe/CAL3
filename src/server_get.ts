@@ -15,6 +15,10 @@ interface QuestionRow {
   discipline: string;
   source: string;
   description: string;
+  proposition: string;
+  step_by_step: string;
+  answer: string;
+  tags: string;
   code_vec_json: string;
   date_vec_json: string;
 }
@@ -34,6 +38,9 @@ interface SpacedRepetitionVariables {
 
 interface Question {
   number: number;
+  discipline: string;
+  source: string;
+  description: string;
   proposition: string;
   "step-by-step": string;
   answer: string;
@@ -88,14 +95,18 @@ export default function createGetRoutes(db: Database) {
           ));
         }
 
-        const [total_attempts, memory_attempts, help_attempts] = attempts_summary.split(';').map(s => parseInt(s, 10));
+        const [total_attempts, memory_attempts, help_attempts] =
+          attempts_summary.split(";").map((s) => parseInt(s, 10));
 
         const question: Question = {
           number: row.question_number,
-          proposition: row.description,
-          "step-by-step": "", // This will be populated later
-          answer: "", // This will be populated later
-          tags: [row.discipline, row.source],
+          discipline: row.discipline,
+          source: row.source,
+          description: row.description,
+          proposition: row.proposition,
+          "step-by-step": row.step_by_step,
+          answer: row.answer,
+          tags: row.tags ? JSON.parse(row.tags) : [],
           spaced_repetition_variables: {
             attempts: date_vector.map((date: string, index: number) => ({
               datetime: date,
@@ -115,7 +126,7 @@ export default function createGetRoutes(db: Database) {
         return question;
       });
 
-      const srvs = questions.map(q => q.spaced_repetition_variables)
+      const srvs = questions.map((q) => q.spaced_repetition_variables);
       calculateCellColor(srvs, "PMG-X");
 
       res.json(questions);

@@ -12,6 +12,15 @@
           "number": {
             "type": "integer"
           },
+          "discipline": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
           "proposition": {
             "type": "string"
           },
