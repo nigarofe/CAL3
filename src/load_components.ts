@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadComponent("/components/add-question-form.html"),
     loadComponent("/components/questions-table-mini.html"),
     loadComponent("/components/questions-table.html"),
+    loadComponent("/components/edit-question-form.html"),
   ]).then(() => {
     (window as any).reloadPage();
     showToast("Welcome!", "This is a sample toast message.", "Just now");

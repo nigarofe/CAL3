@@ -300,5 +300,25 @@ function addActionButtonsToCellData(
   cellData.appendChild(buttonContainer);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const rawInput = document.getElementById(
+    "raw-code-input"
+  ) as HTMLTextAreaElement;
+  const renderedOutput = document.getElementById(
+    "rendered-output"
+  ) as HTMLDivElement;
+
+  if (rawInput && renderedOutput) {
+    const renderContent = () => {
+      renderedOutput.innerHTML = rawInput.value;
+    };
+
+    rawInput.addEventListener("input", renderContent);
+
+    // Initial render in case there's pre-filled content
+    renderContent();
+  }
+});
+
 (window as any).reloadPage = reloadPage;
 (window as any).postQuestion = postQuestion;
