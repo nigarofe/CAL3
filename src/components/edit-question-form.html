@@ -6,13 +6,28 @@
 
   <form id="edit-question-form">
     <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="question-discipline" class="form-label">Discipline</label>
+        <input type="text" id="question-discipline" class="form-control">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="question-source" class="form-label">Source</label>
+        <input type="text" id="question-source" class="form-control">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="question-description" class="form-label">Description</label>
+        <input type="text" id="question-description" class="form-control">
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-6">
         <h3>Raw Content</h3>
-        <textarea id="raw-content-input" class="form-control" style="height: 70vh; resize: none;"></textarea>
+        <textarea id="raw-content-input" class="form-control" style="height: 60vh; resize: none;"></textarea>
       </div>
       <div class="col-md-6">
         <h3>Rendered Content</h3>
-        <div id="rendered-content-output" class="border rounded p-3" style="height: 70vh; overflow-y: auto;"></div>
+        <div id="rendered-content-output" class="border rounded p-3" style="height: 60vh; overflow-y: auto;"></div>
       </div>
     </div>
 

@@ -98,6 +98,18 @@ export default function createGetRoutes(db: Database) {
         const [total_attempts, memory_attempts, help_attempts] =
           attempts_summary.split(";").map((s) => parseInt(s, 10));
 
+        let tags: string[] = [];
+        if (row.tags) {
+          try {
+            tags = JSON.parse(row.tags);
+          } catch (e) {
+            // Fallback for malformed tags data
+            if (typeof row.tags === "string" && row.tags !== "[object Object]") {
+              tags = row.tags.split(",").map((t) => t.trim());
+            }
+          }
+        }
+
         const question: Question = {
           number: row.question_number,
           discipline: row.discipline,
@@ -106,7 +118,7 @@ export default function createGetRoutes(db: Database) {
           proposition: row.proposition,
           "step-by-step": row.step_by_step,
           answer: row.answer,
-          tags: row.tags ? JSON.parse(row.tags) : [],
+          tags: tags,
           spaced_repetition_variables: {
             attempts: date_vector.map((date: string, index: number) => ({
               datetime: date,

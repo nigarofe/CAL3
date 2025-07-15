@@ -415,7 +415,7 @@ export function initializeEditQuestionForm() {
       .replace(/<answer>/g, "<h3>Answer</h3>")
       .replace(/<\/answer>/g, "");
 
-    renderedContentOutput.innerHTML = renderedHTML;
+    renderedContentOutput.innerHTML = renderedHTML.replace(/\n/g, "<br />");
     (window as any).renderMath();
   };
 
