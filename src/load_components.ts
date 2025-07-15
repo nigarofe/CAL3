@@ -31,15 +31,24 @@ async function loadComponent(url: string) {
 
 document.addEventListener("DOMContentLoaded", () => {
   Promise.all([
-    loadComponent("components/main-header.html"),
-    loadComponent("components/toast.html"),
-    loadComponent("components/sticky-navbar.html"),
-    loadComponent("components/add-question-form.html"),
-    loadComponent("components/questions-table-mini.html"),
-    loadComponent("components/questions-table.html"),
+    loadComponent("/components/main-header.html"),
+    loadComponent("/components/toast.html"),
+    loadComponent("/components/sticky-navbar.html"),
+    loadComponent("/components/add-question-form.html"),
+    loadComponent("/components/questions-table-mini.html"),
+    loadComponent("/components/questions-table.html"),
   ]).then(() => {
     (window as any).reloadPage();
     showToast("Welcome!", "This is a sample toast message.", "Just now");
+
+    if (!document.querySelector('input[name="metric"]:checked')) {
+      const qnRadio = document.getElementById(
+        "metric-question_number"
+      ) as HTMLInputElement;
+      if (qnRadio) {
+        qnRadio.checked = true;
+      }
+    }
 
     const metricRadios = [
       { id: "metric-question_number", order_by: "question_number" },
@@ -80,25 +89,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const navbarContainer = document.getElementById("sticky-navbar-container");
     if (navbarContainer) {
-      const observer = new MutationObserver(() => {
-        const el_autohide = document.querySelector(".autohide");
-        if (el_autohide) {
-          let last_scroll_top = 0;
-          window.addEventListener("scroll", function () {
-            let scroll_top = window.scrollY;
-            if (scroll_top < last_scroll_top) {
-              el_autohide.classList.remove("scrolled-down");
-              el_autohide.classList.add("scrolled-up");
-            } else {
-              el_autohide.classList.remove("scrolled-up");
-              el_autohide.classList.add("scrolled-down");
-            }
-            last_scroll_top = scroll_top;
-          });
-          observer.disconnect();
-        }
-      });
-      observer.observe(navbarContainer, { childList: true });
+      let last_scroll_top = 0;
+      const el_autohide = navbarContainer.querySelector(
+        ".autohide"
+      ) as HTMLElement;
+      if (el_autohide) {
+        window.addEventListener("scroll", function () {
+          let scroll_top = window.scrollY;
+          if (scroll_top > last_scroll_top && scroll_top > 50) {
+            el_autohide.classList.remove("scrolled-up");
+            el_autohide.classList.add("scrolled-down");
+          } else {
+            el_autohide.classList.remove("scrolled-down");
+            el_autohide.classList.add("scrolled-up");
+          }
+          last_scroll_top = scroll_top;
+        });
+      }
     }
   });
 });
