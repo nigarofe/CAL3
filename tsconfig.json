@@ -5,12 +5,12 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "outDir": "./"
+    "outDir": "./compiled"
   },
   "include": [
-    "*.ts"
+    "src/*.ts"
   ],
   "exclude": [
-    "../../node_modules"
+    "./node_modules"
   ]
 }
