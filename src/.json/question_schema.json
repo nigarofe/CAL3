@@ -1,117 +1,104 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Question",
-    "description": "A collection of questions with step-by-step and solutions",
-    "type": "object",
-    "properties": {
-        "questions": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Question",
+  "description": "A collection of questions with step-by-step and solutions",
+  "type": "object",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer"
+          },
+          "proposition": {
+            "type": "string"
+          },
+          "step-by-step": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "tags": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "number": {
-                        "type": "integer"
-                    },
-                    "proposition": {
-                        "type": "string"
-                    },
-                    "step-by-step": {
-                        "type": "string"
-                    },
-                    "answer": {
-                        "type": "string"
-                    },
-                    "tags": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "attempts": {
-                        "type": "array",
-                        "description": "A log of all attempts for this question.",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "datetime": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "description": "The ISO 8601 timestamp of the attempt."
-                                },
-                                "code": {
-                                    "type": "integer",
-                                    "enum": [
-                                        0,
-                                        1
-                                    ],
-                                    "description": "A code representing the outcome or type of attempt (e.g., 'needed help','from memory')."
-                                }
-                            },
-                            "required": [
-                                "datetime",
-                                "code"
-                            ]
-                        }
-                    },
-                    "spaced_repetition_variables": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "DSLA": {
-                                    "type": "integer",
-                                    "descriptive_name": "Days Since Last Attempt",
-                                    "description": "Days Since Last Attempt. The number of days that have passed since the most recent attempt on the question."
-                                },
-                                "LaMI": {
-                                    "type": "integer",
-                                    "descriptive_name": "Latest Memory Interval",
-                                    "description": "Latest Memory Interval. The number of days between the most recent memory-based attempt and the previous attempt.",
-                                    "unit": "days"
-                                },
-                                "PMG-D": {
-                                    "type": "integer",
-                                    "descriptive_name": "Potential Memory Gain (Days)",
-                                    "description": "Potential Memory Gain (Days). The estimated improvement in the Latest Memory Interval, in days, if the next attempt is successful.",
-                                    "unit": "days"
-                                },
-                                "PMG-X": {
-                                    "type": "number",
-                                    "descriptive_name": "Potential Memory Gain Multiplier",
-                                    "description": "Potential Memory Gain Multiplier. How much the Latest Memory Interval will increase if the next attempt is successful.",
-                                    "unit": "multiplier"
-                                },
-                                "total_attempts": {
-                                    "type": "integer",
-                                    "descriptive_name": "Total Attempts",
-                                    "description": "The total number of attempts made for a question."
-                                },
-                                "memory_attempts": {
-                                    "type": "integer",
-                                    "descriptive_name": "Attempts from Memory",
-                                    "description": "The number of attempts completed solely from memory."
-                                },
-                                "help_attempts": {
-                                    "type": "integer",
-                                    "descriptive_name": "Attempts with Help",
-                                    "description": "The number of attempts where external help or references were used."
-                                },
-                                "attempts_summary": {
-                                    "type": "string",
-                                    "descriptive_name": "Attempts Summary",
-                                    "description": "A three-part summary, separated by semicolons (e.g., `4; 1; 3`), that details your attempts for a question. Components: total_attempts (First Number), memory_attempts (Second Number), help_attempts (Third Number)"
-                                }
-                            }
-                        }
-                    }
-                },
-                "required": [
-                    "number",
-                    "proposition",
-                    "answer",
-                    "tags"
-                ]
+              "type": "string"
             }
-        }
+          },
+          "spaced_repetition_variables": {
+            "type": "object",
+            "properties": {
+              "attempts": {
+                "type": "array",
+                "description": "A log of all attempts for this question.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "datetime": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The ISO 8601 timestamp of the attempt."
+                    },
+                    "code": {
+                      "type": "integer",
+                      "enum": [0, 1],
+                      "description": "A code representing the outcome or type of attempt (e.g., 'needed help','from memory')."
+                    }
+                  },
+                  "required": ["datetime", "code"]
+                }
+              },
+              "DSLA": {
+                "type": "integer",
+                "descriptive_name": "Days Since Last Attempt",
+                "description": "Days Since Last Attempt. The number of days that have passed since the most recent attempt on the question."
+              },
+              "LaMI": {
+                "type": "integer",
+                "descriptive_name": "Latest Memory Interval",
+                "description": "Latest Memory Interval. The number of days between the most recent memory-based attempt and the previous attempt.",
+                "unit": "days"
+              },
+              "PMG-D": {
+                "type": "integer",
+                "descriptive_name": "Potential Memory Gain (Days)",
+                "description": "Potential Memory Gain (Days). The estimated improvement in the Latest Memory Interval, in days, if the next attempt is successful.",
+                "unit": "days"
+              },
+              "PMG-X": {
+                "type": "number",
+                "descriptive_name": "Potential Memory Gain Multiplier",
+                "description": "Potential Memory Gain Multiplier. How much the Latest Memory Interval will increase if the next attempt is successful.",
+                "unit": "multiplier"
+              },
+              "total_attempts": {
+                "type": "integer",
+                "descriptive_name": "Total Attempts",
+                "description": "The total number of attempts made for a question."
+              },
+              "memory_attempts": {
+                "type": "integer",
+                "descriptive_name": "Attempts from Memory",
+                "description": "The number of attempts completed solely from memory."
+              },
+              "help_attempts": {
+                "type": "integer",
+                "descriptive_name": "Attempts with Help",
+                "description": "The number of attempts where external help or references were used."
+              },
+              "attempts_summary": {
+                "type": "string",
+                "descriptive_name": "Attempts Summary",
+                "description": "A three-part summary, separated by semicolons (e.g., `4; 1; 3`), that details your attempts for a question. Components: total_attempts (First Number), memory_attempts (Second Number), help_attempts (Third Number)",
+                "pattern": "^\\d+;\\d+;\\d+$"
+              }
+            }
+          }
+        },
+        "required": ["number", "proposition", "answer", "tags"]
+      }
     }
+  }
 }
