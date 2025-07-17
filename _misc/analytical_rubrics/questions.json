@@ -1,0 +1,114 @@
+{
+    "rubricTitle": "Analytical Rubric for Evaluating Codebase Questions",
+    "rubricDescription": "A rubric to evaluate the quality and effectiveness of open-ended questions designed to assess a developer's understanding of a codebase.",
+    "criteria": [
+        {
+            "criterionId": "clarity_and_specificity",
+            "criterionName": "Clarity and Specificity",
+            "weight": 0.3,
+            "levels": [
+                {
+                    "score": 4,
+                    "descriptor": "Excellent",
+                    "description": "The question is exceptionally clear, precise, and unambiguous. The scope of the expected answer is well-defined, leaving no room for misinterpretation."
+                },
+                {
+                    "score": 3,
+                    "descriptor": "Proficient",
+                    "description": "The question is clear and understandable. The scope is reasonably defined, though minor ambiguities might exist."
+                },
+                {
+                    "score": 2,
+                    "descriptor": "Developing",
+                    "description": "The question is vague or overly broad, making it difficult to understand the specific task or the required depth of the answer."
+                },
+                {
+                    "score": 1,
+                    "descriptor": "Needs Improvement",
+                    "description": "The question is confusing, incoherent, or contains multiple conflicting prompts, making it nearly impossible to answer effectively."
+                }
+            ]
+        },
+        {
+            "criterionId": "cognitive_demand",
+            "criterionName": "Cognitive Demand (Analysis & Synthesis)",
+            "weight": 0.3,
+            "levels": [
+                {
+                    "score": 4,
+                    "descriptor": "Excellent",
+                    "description": "Requires high-order thinking (Analyze, Evaluate, Create). Asks the respondent to synthesize information, justify decisions, or propose novel solutions based on the code."
+                },
+                {
+                    "score": 3,
+                    "descriptor": "Proficient",
+                    "description": "Requires application and some analysis. Asks the respondent to explain how or why the code works, or to apply their knowledge to solve a defined problem."
+                },
+                {
+                    "score": 2,
+                    "descriptor": "Developing",
+                    "description": "Primarily requires comprehension. Asks the respondent to describe what a piece of code does without significant analysis."
+                },
+                {
+                    "score": 1,
+                    "descriptor": "Needs Improvement",
+                    "description": "Only requires recall. Asks the respondent to identify a variable or state a simple fact that can be found directly in the code without interpretation."
+                }
+            ]
+        },
+        {
+            "criterionId": "relevance_and_context",
+            "criterionName": "Relevance and Context",
+            "weight": 0.2,
+            "levels": [
+                {
+                    "score": 4,
+                    "descriptor": "Excellent",
+                    "description": "The question is highly relevant and targets a critical or non-obvious aspect of the codebase that reveals true understanding (e.g., architectural patterns, error handling, key algorithms)."
+                },
+                {
+                    "score": 3,
+                    "descriptor": "Proficient",
+                    "description": "The question is relevant to the codebase and addresses a meaningful component or function."
+                },
+                {
+                    "score": 2,
+                    "descriptor": "Developing",
+                    "description": "The question is only tangentially related to the core purpose of the codebase or focuses on a trivial or boilerplate section."
+                },
+                {
+                    "score": 1,
+                    "descriptor": "Needs Improvement",
+                    "description": "The question is irrelevant or could be answered without referencing the provided codebase at all."
+                }
+            ]
+        },
+        {
+            "criterionId": "assessment_value",
+            "criterionName": "Assessment Value",
+            "weight": 0.2,
+            "levels": [
+                {
+                    "score": 4,
+                    "descriptor": "Excellent",
+                    "description": "A strong answer to this question would be a powerful indicator of a developer's skill and depth of understanding. It effectively differentiates between expert and novice developers."
+                },
+                {
+                    "score": 3,
+                    "descriptor": "Proficient",
+                    "description": "A correct answer demonstrates solid competence and understanding of the specific area being tested."
+                },
+                {
+                    "score": 2,
+                    "descriptor": "Developing",
+                    "description": "The question assesses a very narrow or low-level skill, and a correct answer provides limited insight into the developer's overall capabilities."
+                },
+                {
+                    "score": 1,
+                    "descriptor": "Needs Improvement",
+                    "description": "The question is a 'trivia' question or has little value in assessing meaningful software development skills."
+                }
+            ]
+        }
+    ]
+}

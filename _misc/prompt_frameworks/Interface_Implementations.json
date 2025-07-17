@@ -1,0 +1,240 @@
+[
+    {
+        "activity_type": "association_two_lists",
+        "activity_data": {
+            "list_1": [
+                "Apple",
+                "Banana",
+                "Carrot",
+                "Broccoli"
+            ],
+            "list_2": [
+                "Fruit",
+                "Vegetable"
+            ],
+            "correct_associations": [
+                {
+                    "item1": "Apple",
+                    "item2": "Fruit"
+                },
+                {
+                    "item1": "Banana",
+                    "item2": "Fruit"
+                },
+                {
+                    "item1": "Carrot",
+                    "item2": "Vegetable"
+                },
+                {
+                    "item1": "Broccoli",
+                    "item2": "Vegetable"
+                }
+            ]
+        },
+        "interface_implementations": [
+            {
+                "module_type": "drag_and_drop",
+                "description": "Have a box for each item in list_2 and let the user drop each item from list_1 into the correct box.",
+                "learning_reinforcement": "Reinforces understanding of categories by requiring direct, kinesthetic association."
+            },
+            {
+                "module_type": "shooting",
+                "description": "Tell the user which ammo type is loaded in his gun, that is only effective against certain types of targets (e.g., 'Fruit ammo' for 'Fruit' targets).",
+                "learning_reinforcement": "Encourages quick identification and classification under pressure in a gamified context."
+            },
+            {
+                "module_type": "matching_game",
+                "description": "Display all items from list_1 and list_2, and have the user draw lines or click to connect correct pairs.",
+                "learning_reinforcement": "Strengthens memory and recognition of associations through visual pairing."
+            },
+            {
+                "module_type": "quiz_multiple_choice",
+                "description": "For each item in list_1, ask the user to choose its category from list_2 as multiple-choice options.",
+                "learning_reinforcement": "Tests recall and understanding of classifications in a structured, familiar format."
+            },
+            {
+                "module_type": "sorting_list",
+                "description": "Present two columns, one for each category in list_2. The user must move all items from an unsorted list into the correct column.",
+                "learning_reinforcement": "Develops organizational skills by physically grouping multiple items into their respective categories."
+            },
+            {
+                "module_type": "fill_in_the_blank",
+                "description": "Show the user an item from list_1 and an empty text field. The user must type the correct category from list_2.",
+                "learning_reinforcement": "Promotes active recall and correct spelling, as the user must generate the answer from memory instead of just recognizing it."
+            },
+            {
+                "module_type": "memory_match",
+                "description": "Create a grid of face-down cards. Some cards contain items from list_1, others from list_2. Users flip two cards at a time to find the matching pairs.",
+                "learning_reinforcement": "Enhances short-term memory and association recall through the classic concentration card game mechanic."
+            },
+            {
+                "module_type": "timed_categorization",
+                "description": "Flash an item from list_1 on the screen. The user must quickly press one of two buttons, labeled with the categories from list_2, before time runs out.",
+                "learning_reinforcement": "Builds rapid-response classification skills and automates the association process under time constraints."
+            }
+        ]
+    },
+    {
+        "activity_type": "question_with_correct_answer",
+        "activity_data": {
+            "question": "Which gas do plants primarily use for photosynthesis?",
+            "correct_answer": "Carbon Dioxide",
+            "distractors": [
+                "Oxygen",
+                "Nitrogen",
+                "Hydrogen"
+            ]
+        },
+        "interface_implementations": [
+            {
+                "module_type": "standard_quiz",
+                "description": "Display the question and the options as a list of radio buttons or clickable boxes. The user selects one answer and submits.",
+                "learning_reinforcement": "Tests recognition and recall of specific facts in a straightforward, universally understood format."
+            },
+            {
+                "module_type": "survivor_quiz",
+                "description": "Show all options. The user clicks to eliminate incorrect answers one by one until only the correct one remains.",
+                "learning_reinforcement": "Encourages process of elimination and builds confidence by allowing the user to discard definite non-answers first."
+            },
+            {
+                "module_type": "text_input",
+                "description": "Display the prompt with an empty text field where the user types their answer directly into the field.",
+                "learning_reinforcement": "Promotes active recall rather than simple recognition, as the user must generate the answer from memory."
+            },
+            {
+                "module_type": "word_bank_drag_drop",
+                "description": "Show the prompt with a blank space. Provide a list of possible answers (including distractors) that the user can drag and drop into the blank.",
+                "learning_reinforcement": "Provides scaffolding for learners by offering a set of choices, reducing the cognitive load of pure recall."
+            },
+            {
+                "module_type": "dropdown_select",
+                "description": "Replace the blank in the prompt with a dropdown menu containing the correct answer and several incorrect options.",
+                "learning_reinforcement": "Acts as a middle ground between open recall and multiple choice, useful for guiding the user towards the correct concept."
+            }
+        ]
+    },
+    {
+        "activity_type": "order_sequence",
+        "activity_data": {
+            "prompt": "Arrange the first four stages of the water cycle, starting with water on Earth's surface.",
+            "correct_order": [
+                "Evaporation",
+                "Condensation",
+                "Precipitation",
+                "Collection"
+            ]
+        },
+        "interface_implementations": [
+            {
+                "module_type": "drag_and_drop_list",
+                "description": "Display the items in a shuffled order. The user drags and drops them into the correct sequence in a designated area.",
+                "learning_reinforcement": "Reinforces understanding of processes and timelines through direct manipulation and visualization of order."
+            },
+            {
+                "module_type": "click_to_order",
+                "description": "Show a pool of unordered items. The user clicks on them one by one in the correct sequence to build the ordered list.",
+                "learning_reinforcement": "Focuses on recall of sequence by having the user actively construct the correct order from scratch."
+            },
+            {
+                "module_type": "numbering_input",
+                "description": "Present the items in a random order, each with a text box next to it. The user must type the correct sequence number (1, 2, 3, etc.) for each item.",
+                "learning_reinforcement": "Tests memory of sequential information and requires the user to mentally map the entire process at once."
+            }
+        ]
+    },
+    {
+        "activity_type": "true_false_statement",
+        "activity_data": {
+            "statement": "The Earth is the fourth planet from the Sun.",
+            "is_true": false
+        },
+        "interface_implementations": [
+            {
+                "module_type": "true_false_buttons",
+                "description": "Display the statement with two prominent buttons labeled 'True' and 'False'. The user selects one.",
+                "learning_reinforcement": "Provides a quick and direct way to assess factual knowledge and address common misconceptions."
+            },
+            {
+                "module_type": "swipe_cards",
+                "description": "Present the statement on a card. The user swipes the card right for 'True' or left for 'False'.",
+                "learning_reinforcement": "Gamifies the assessment of facts, making rapid-fire quizzing more engaging and interactive."
+            },
+            {
+                "module_type": "thumbs_up_down",
+                "description": "Show the statement and ask the user to respond by clicking a 'Thumbs Up' (True) or 'Thumbs Down' (False) icon.",
+                "learning_reinforcement": "Uses intuitive, universal symbols to test binary propositions, lowering the cognitive barrier for response."
+            }
+        ]
+    },
+    {
+        "activity_type": "image_hotspot",
+        "activity_data": {
+            "prompt": "Identify the nucleus in the animal cell diagram.",
+            "image_url": "https://example.com/path/to/animal_cell.png",
+            "correct_hotspots": [
+                {
+                    "shape": "circle",
+                    "coords": {
+                        "x": 450,
+                        "y": 300,
+                        "radius": 50
+                    },
+                    "label": "Nucleus"
+                }
+            ]
+        },
+        "interface_implementations": [
+            {
+                "module_type": "click_on_image",
+                "description": "Display the image and the prompt. The user must click on the correct region of the image. A click within the defined hotspot is marked as correct.",
+                "learning_reinforcement": "Develops visual identification and spatial reasoning skills by requiring the user to locate a specific part within a larger context."
+            },
+            {
+                "module_type": "label_drag_and_drop",
+                "description": "Present the image with several empty target markers on different organelles. The user must drag the correct label ('Nucleus') from a word bank onto the target marker on the nucleus.",
+                "learning_reinforcement": "Tests knowledge of terminology and its association with visual representations, suitable for learning multiple parts at once."
+            }
+        ]
+    },
+    {
+        "activity_type": "fill_the_blanks_paragraph",
+        "activity_data": {
+            "text_template": "A right triangle has one angle that is exactly [BLANK_1] degrees. The side opposite this angle is called the [BLANK_2].",
+            "blanks": [
+                {
+                    "id": "BLANK_1",
+                    "correct_answer": "90"
+                },
+                {
+                    "id": "BLANK_2",
+                    "correct_answer": "hypotenuse"
+                }
+            ],
+            "word_bank": [
+                "90",
+                "hypotenuse",
+                "45",
+                "adjacent",
+                "180",
+                "vertex"
+            ]
+        },
+        "interface_implementations": [
+            {
+                "module_type": "drag_words_to_blanks",
+                "description": "Display the paragraph with empty boxes for blanks. The user drags words from the provided word bank into the correct boxes.",
+                "learning_reinforcement": "Strengthens understanding of concepts in context and provides scaffolding by offering choices, reducing the chance of spelling errors."
+            },
+            {
+                "module_type": "dropdowns_in_text",
+                "description": "Each blank in the text is a dropdown menu containing all the words from the word bank. The user selects the correct word for each blank.",
+                "learning_reinforcement": "Allows the user to focus on a single choice at a time while still seeing the full context of the sentence, reinforcing relationships between concepts."
+            },
+            {
+                "module_type": "type_in_blanks",
+                "description": "Each blank is an active text input field. The user must type the correct answers directly into the paragraph.",
+                "learning_reinforcement": "Maximizes recall challenge by requiring the user to generate and spell the correct terms from memory within a contextual framework."
+            }
+        ]
+    }
+]

@@ -1,0 +1,53 @@
+B C D F G J L M N P
+
+0 S
+1 T
+2 N
+3 M
+4 R
+5 F
+6 G
+7 L
+8 B
+9 P
+
+
+
+B
+Bart
+Bernardo
+Bissoli
+Bob
+Bubba
+Barbie
+Beatriz
+Bianca
+Burkina 
+
+C
+Caio
+Cesar
+Cid
+Curtis
+Carina
+Celina
+Cida
+Cury
+
+D
+Daril
+Denis
+Dimitri
+Donald
+Dustin
+Daniela
+Delma
+Direne
+Duda
+
+F
+Fábio 
+Felipe
+Firmino
+Fogli
+Fuji

@@ -1,0 +1,1694 @@
+[
+  {
+    "file_name": "q1.md",
+    "tags": [
+      "template"
+    ]
+  },
+  {
+    "file_name": "q2.md",
+    "tags": [
+      "calculus",
+      "english",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q3.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q4.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "first-order-de",
+      "initial-value-problem",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q5.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q6.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "first-order-de",
+      "initial-value-problem",
+      "integration",
+      "question",
+      "u-substitution"
+    ]
+  },
+  {
+    "file_name": "q7.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "initial-value-problem",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q8.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "initial-value-problem",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q9.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "initial-value-problem",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q10.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q11.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q12.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "parametrization",
+      "portuguese",
+      "question",
+      "scalar-field",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q13.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "scalar-field",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q14.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "u-substitution",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q15.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question",
+      "trigonometry",
+      "u-substitution"
+    ]
+  },
+  {
+    "file_name": "q16.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q17.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q18.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "trigonometry",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q19.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "trigonometry",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q20.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "integration-by-parts",
+      "portuguese",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q21.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "integration-by-parts",
+      "portuguese",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q22.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question",
+      "trigonometry",
+      "u-substitution"
+    ]
+  },
+  {
+    "file_name": "q23.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question",
+      "trigonometry",
+      "u-substitution"
+    ]
+  },
+  {
+    "file_name": "q24.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "surface-integral",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q25.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "surface-integral",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q26.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "scalar-field",
+      "surface-integral",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q27.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q28.md",
+    "tags": [
+      "calculus",
+      "divergence-theorem",
+      "flux",
+      "integration",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "surface-integral",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q29.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "stokes-theorem",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q30.md",
+    "tags": [
+      "calculus",
+      "english",
+      "multivariable-calculus",
+      "parametrization",
+      "question",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q31.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q32.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question",
+      "u-substitution"
+    ]
+  },
+  {
+    "file_name": "q33.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "integration-by-parts",
+      "portuguese",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q34.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q35.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q36.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question",
+      "trigonometry",
+      "u-substitution"
+    ]
+  },
+  {
+    "file_name": "q37.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "first-order-de",
+      "initial-value-problem",
+      "integration",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q38.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "first-order-de",
+      "integration",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q39.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "first-order-de",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q40.md",
+    "tags": [
+      "amplitude",
+      "angular-frequency",
+      "english",
+      "frequency",
+      "oscillations",
+      "period",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion"
+    ]
+  },
+  {
+    "file_name": "q41.md",
+    "tags": [
+      "english",
+      "frequency",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "spring"
+    ]
+  },
+  {
+    "file_name": "q42.md",
+    "tags": [
+      "amplitude",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "spring",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q43.md",
+    "tags": [
+      "calculus",
+      "multivariable-calculus",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "spring",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q44.md",
+    "tags": [
+      "amplitude",
+      "calculus",
+      "english",
+      "frequency",
+      "multivariable-calculus",
+      "oscillations",
+      "period",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q45.md",
+    "tags": [
+      "amplitude",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "solid-mechanics",
+      "spring",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q46.md",
+    "tags": [
+      "amplitude",
+      "frequency",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "spring"
+    ]
+  },
+  {
+    "file_name": "q47.md",
+    "tags": [
+      "moment-of-inertia",
+      "oscillations",
+      "period",
+      "physics",
+      "portuguese",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q48.md",
+    "tags": [
+      "oscillations",
+      "pendulum",
+      "period",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion"
+    ]
+  },
+  {
+    "file_name": "q49.md",
+    "tags": [
+      "oscillations",
+      "pendulum",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q50.md",
+    "tags": [
+      "calculus",
+      "english",
+      "multivariable-calculus",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q51.md",
+    "tags": [
+      "amplitude",
+      "english",
+      "oscillations",
+      "physics",
+      "portuguese",
+      "question",
+      "simple-harmonic-motion"
+    ]
+  },
+  {
+    "file_name": "q52.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q53.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q54.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q55.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q56.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q57.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q58.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q59.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q60.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q61.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q62.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q63.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q64.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q65.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q66.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q67.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "portuguese",
+      "question",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q69.md",
+    "tags": [
+      "calculus",
+      "english",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "physics",
+      "question",
+      "scalar-field",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q72.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q73.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "initial-value-problem",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q74.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q75.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "initial-value-problem",
+      "portuguese",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q76.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "integration",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q77.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "initial-value-problem",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q78.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "initial-value-problem",
+      "portuguese",
+      "question"
+    ]
+  },
+  {
+    "file_name": "q79.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q80.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q81.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q82.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de"
+    ]
+  },
+  {
+    "file_name": "q83.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q84.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q85.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "question",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q88.md",
+    "tags": [
+      "change-of-basis",
+      "linear-algebra",
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis",
+      "tensor-rotation",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q90.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q91.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q92.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q93.md",
+    "tags": [
+      "linear-algebra",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q94.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q95.md",
+    "tags": [
+      "eigenvalue",
+      "linear-algebra",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q96.md",
+    "tags": [
+      "linear-algebra",
+      "maximum-shear-stress",
+      "mohrs-circle",
+      "physics",
+      "portuguese",
+      "principal-stress",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q97.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q98.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q99.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q100.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q101.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q102.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q103.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q104.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q105.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q106.md",
+    "tags": [
+      "portuguese",
+      "template"
+    ]
+  },
+  {
+    "file_name": "q107.md",
+    "tags": [
+      "calculus",
+      "linear-algebra",
+      "multivariable-calculus",
+      "parametrization",
+      "portuguese",
+      "question",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q108.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "multivariable-calculus",
+      "parametrization",
+      "portuguese",
+      "question",
+      "surface-integral",
+      "trigonometry",
+      "u-substitution",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q109.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "multivariable-calculus",
+      "parametrization",
+      "portuguese",
+      "question",
+      "surface-integral",
+      "u-substitution",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q110.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "plane-stress",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q111.md",
+    "tags": [
+      "eigenvalue",
+      "linear-algebra",
+      "maximum-shear-stress",
+      "mohrs-circle",
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q112.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q115.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q116.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q117.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "multivariable-calculus",
+      "parametrization",
+      "question",
+      "scalar-field",
+      "surface-integral",
+      "trigonometry",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "q118.md",
+    "tags": [
+      "calculus",
+      "flux",
+      "integration",
+      "multivariable-calculus",
+      "parametrization",
+      "question",
+      "surface-integral",
+      "trigonometry",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q119.md",
+    "tags": [
+      "calculus",
+      "divergence-theorem",
+      "flux",
+      "integration",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "surface-integral",
+      "trigonometry",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q120.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "portuguese",
+      "question",
+      "stokes-theorem",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "q121.md",
+    "tags": [
+      "eigenvalue",
+      "linear-algebra",
+      "maximum-shear-stress",
+      "mohrs-circle",
+      "physics",
+      "portuguese",
+      "principal-stress",
+      "question",
+      "solid-mechanics",
+      "stress-analysis",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "q122.md",
+    "tags": [
+      "linear-algebra",
+      "question",
+      "tensor-rotation"
+    ]
+  },
+  {
+    "file_name": "q123.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q124.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics"
+    ]
+  },
+  {
+    "file_name": "q125.md",
+    "tags": [
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q126.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q127.md",
+    "tags": [
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "q128.md",
+    "tags": [
+      "portuguese",
+      "question",
+      "solid-mechanics"
+    ]
+  },
+  {
+    "file_name": "q129.md",
+    "tags": [
+      "physics",
+      "plane-stress",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis",
+      "yield-criteria"
+    ]
+  },
+  {
+    "file_name": "q130.md",
+    "tags": [
+      "physics",
+      "portuguese",
+      "question",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps1.md",
+    "tags": [
+      "calculus",
+      "english",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "parametrization",
+      "premise",
+      "scalar-field",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "ps2.md",
+    "tags": [
+      "calculus",
+      "english",
+      "integration",
+      "multivariable-calculus",
+      "premise",
+      "scalar-field",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "ps3.md",
+    "tags": [
+      "linear-algebra",
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps4.md",
+    "tags": [
+      "change-of-basis",
+      "english",
+      "linear-algebra",
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "stress-analysis",
+      "tensor-rotation",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps5.md",
+    "tags": [
+      "multivariable-calculus",
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps6.md",
+    "tags": [
+      "eigenvalue",
+      "linear-algebra",
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps7.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "plane-stress",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps8.md",
+    "tags": [
+      "constitutive-equations",
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics"
+    ]
+  },
+  {
+    "file_name": "ps9.md",
+    "tags": [
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics"
+    ]
+  },
+  {
+    "file_name": "ps10.md",
+    "tags": [
+      "linear-algebra",
+      "portuguese",
+      "premise",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps11.md",
+    "tags": [
+      "eigenvalue",
+      "linear-algebra",
+      "maximum-shear-stress",
+      "mohrs-circle",
+      "physics",
+      "portuguese",
+      "premise",
+      "principal-stress",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps12.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "linear-algebra",
+      "portuguese",
+      "premise",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps13.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "premise",
+      "second-order-de",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps14.md",
+    "tags": [
+      "moment-of-inertia",
+      "physics",
+      "portuguese",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps15.md",
+    "tags": [
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "stress-analysis"
+    ]
+  },
+  {
+    "file_name": "ps16.md",
+    "tags": [
+      "english",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps17.md",
+    "tags": [
+      "calculus",
+      "integration",
+      "integration-by-parts",
+      "portuguese",
+      "premise",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps18.md",
+    "tags": [
+      "premise",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps19.md",
+    "tags": [
+      "calculus",
+      "divergence-theorem",
+      "english",
+      "greens-theorem",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "parametrization",
+      "premise",
+      "stokes-theorem",
+      "surface-integral",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "ps20.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "portuguese",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps21.md",
+    "tags": [
+      "calculus",
+      "english",
+      "greens-theorem",
+      "integration",
+      "line-integral",
+      "multivariable-calculus",
+      "premise",
+      "stokes-theorem",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "ps22.md",
+    "tags": [
+      "calculus",
+      "english",
+      "multivariable-calculus",
+      "premise",
+      "scalar-field",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "ps23.md",
+    "tags": [
+      "calculus",
+      "multivariable-calculus",
+      "portuguese",
+      "premise",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "ps24.md",
+    "tags": [
+      "english",
+      "linear-algebra",
+      "premise",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps25.md",
+    "tags": [
+      "english",
+      "linear-algebra",
+      "multivariable-calculus",
+      "premise",
+      "trigonometry",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "ps26.md",
+    "tags": [
+      "english",
+      "linear-algebra",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps27.md",
+    "tags": [
+      "linear-algebra",
+      "portuguese",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps28.md",
+    "tags": [
+      "calculus",
+      "divergence-theorem",
+      "english",
+      "greens-theorem",
+      "multivariable-calculus",
+      "portuguese",
+      "premise",
+      "stokes-theorem",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "ps29.md",
+    "tags": [
+      "calculus",
+      "linear-algebra",
+      "multivariable-calculus",
+      "portuguese",
+      "premise",
+      "vector-calculus"
+    ]
+  },
+  {
+    "file_name": "ps30.md",
+    "tags": [
+      "calculus",
+      "flux",
+      "integration",
+      "multivariable-calculus",
+      "portuguese",
+      "premise",
+      "surface-integral",
+      "vector-calculus",
+      "vector-field"
+    ]
+  },
+  {
+    "file_name": "ps31.md",
+    "tags": [
+      "english",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps32.md",
+    "tags": [
+      "linear-algebra",
+      "portuguese",
+      "premise"
+    ]
+  },
+  {
+    "file_name": "ps33.md",
+    "tags": [
+      "linear-algebra",
+      "premise",
+      "tensor-rotation",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps34.md",
+    "tags": [
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "strain-analysis",
+      "stress-analysis",
+      "trigonometry"
+    ]
+  },
+  {
+    "file_name": "ps35.md",
+    "tags": [
+      "english",
+      "physics",
+      "plane-stress",
+      "premise",
+      "principal-stress",
+      "solid-mechanics",
+      "stress-analysis",
+      "yield-criteria"
+    ]
+  },
+  {
+    "file_name": "Summary.md",
+    "tags": [
+      "calculus",
+      "differential-equation",
+      "english",
+      "linear-algebra",
+      "multivariable-calculus",
+      "physics",
+      "portuguese",
+      "premise",
+      "solid-mechanics",
+      "vector-calculus"
+    ]
+  }
+]

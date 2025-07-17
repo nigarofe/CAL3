@@ -1,0 +1,141 @@
+{
+  "rubricTitle": "Analytical Rubric for Codebase Question Evaluation",
+  "rubricDescription": "A rubric to evaluate the quality of answers to open-ended questions about a given codebase, focusing on comprehension, analysis, and communication.",
+  "criteria": [
+    {
+      "criterionId": "code_comprehension",
+      "criterionName": "Code Comprehension",
+      "weight": 0.2,
+      "levels": [
+        {
+          "score": 4,
+          "descriptor": "Excellent",
+          "description": "Demonstrates a deep and accurate understanding of the code's functionality, including subtle nuances, control flow, and interactions between different components."
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient",
+          "description": "Accurately describes the main functionality and logic of the relevant code sections. The core purpose of the code is well understood."
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing",
+          "description": "Shows a partial or surface-level understanding of the code. May misinterpret some logic or miss key interactions between parts of the code."
+        },
+        {
+          "score": 1,
+          "descriptor": "Needs Improvement",
+          "description": "Fundamentally misunderstands the code's purpose or how it works. The explanation of the code's function is incorrect or incoherent."
+        }
+      ]
+    },
+    {
+      "criterionId": "problem_analysis",
+      "criterionName": "Problem Identification and Analysis",
+      "weight": 0.25,
+      "levels": [
+        {
+          "score": 4,
+          "descriptor": "Excellent",
+          "description": "Pinpoints the precise root cause of the issue (e.g., bug, performance bottleneck), clearly explaining the 'why' behind the problem with specific references to the code."
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient",
+          "description": "Correctly identifies the area where the issue exists and provides a generally accurate analysis of the problem, even if not the deepest possible insight."
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing",
+          "description": "Identifies a symptom of the problem rather than its root cause, or the analysis provided is incomplete, superficial, or partially incorrect."
+        },
+        {
+          "score": 1,
+          "descriptor": "Needs Improvement",
+          "description": "Fails to identify the problem correctly, or the analysis is fundamentally flawed and does not logically connect to the provided code."
+        }
+      ]
+    },
+    {
+      "criterionId": "solution_quality",
+      "criterionName": "Proposed Solution or Improvement",
+      "weight": 0.25,
+      "levels": [
+        {
+          "score": 4,
+          "descriptor": "Excellent",
+          "description": "Proposes a solution that is not only correct but also efficient, idiomatic, and robust. The solution follows modern best practices and is well-integrated with the existing codebase."
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient",
+          "description": "Proposes a solution that correctly solves the problem. It is functional and reasonable, but may not be the most optimal or elegant approach."
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing",
+          "description": "Proposes a solution that is conceptually on the right track but contains significant flaws, bugs, or doesn't fully address all aspects of the problem."
+        },
+        {
+          "score": 1,
+          "descriptor": "Needs Improvement",
+          "description": "The proposed solution is incorrect, impractical, or introduces more significant problems than it solves."
+        }
+      ]
+    },
+    {
+      "criterionId": "communication_clarity",
+      "criterionName": "Clarity and Communication",
+      "weight": 0.15,
+      "levels": [
+        {
+          "score": 4,
+          "descriptor": "Excellent",
+          "description": "The explanation is exceptionally clear, concise, and well-structured. Technical terms are used precisely. Another developer could implement the solution based on the description alone."
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient",
+          "description": "The explanation is clear and generally easy to follow. There may be minor ambiguities, but the core ideas are communicated effectively."
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing",
+          "description": "The explanation is difficult to follow, disorganized, or uses vague/incorrect terminology. Key points are unclear without significant re-reading."
+        },
+        {
+          "score": 1,
+          "descriptor": "Needs Improvement",
+          "description": "The explanation is incoherent, illegible, or completely fails to communicate the intended meaning."
+        }
+      ]
+    },
+    {
+      "criterionId": "tradeoffs_and_edge_cases",
+      "criterionName": "Consideration of Trade-offs & Edge Cases",
+      "weight": 0.15,
+      "levels": [
+        {
+          "score": 4,
+          "descriptor": "Excellent",
+          "description": "Proactively identifies and discusses important trade-offs (e.g., performance vs. maintainability, security implications) and potential edge cases or side effects of the proposed change."
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient",
+          "description": "Acknowledges at least one significant trade-off or edge case, especially if it is an obvious one."
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing",
+          "description": "The proposed solution ignores obvious trade-offs and edge cases, suggesting a narrow focus on just the 'happy path'."
+        },
+        {
+          "score": 1,
+          "descriptor": "Needs Improvement",
+          "description": "Demonstrates a lack of awareness of the broader implications of code changes. Fails to consider any context outside the immediate problem."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "persona": "Infer the most appropriate persona from the 'input_text'. If the text is neutral or provides no clues, adopt a standard helpful technical writer persona.",
+    "core_task": "Your task is to analyze the provided 'input_text' to generate a seamless and purposeful continuation, prequel, or expansion of the text, intelligently determining any unspecified parameters.",
+    "input_text": "[Insert the user's text snippet here. This text is the primary source for all inferences.]",
+    "generation_instructions": {
+        "placement": "Analyze the 'input_text' and the user's goal to determine the most logical placement. Choose from 'BEFORE', 'AFTER', or 'EXPAND'. Default to 'AFTER' if the user's intent is ambiguous.",
+        "tone_and_style": "Required Inference: Analyze the 'input_text' to identify and replicate its tone and style. The generated text must be a seamless match.",
+        "output_constraints": {
+            "format": "Based on the context and the nature of the generated text, select the most suitable output format (e.g., 'A single, well-formed paragraph', 'Three concise bullet points', 'A line of dialogue'). Default to a paragraph if no other format is more logical.",
+            "length": "Determine and generate a contextually appropriate length. Avoid being overly brief or excessively long."
+        }
+    }
+}
